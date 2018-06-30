@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ReadJournalActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="15dp"
+        android:text="Title" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/txtTitle"
+        android:layout_marginTop="55dp"
+        android:text="Date"
+        android:layout_below="@id/txtTitle"
+        android:textColor="@color/colorAccent"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textStyle="italic"/>
+
+    <View
+        android:id="@+id/txtDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/txtDate"
+        android:layout_margin="10dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtBody"
+        android:layout_alignTop="@+id/txtDate"
+        android:text="Category"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/txtBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginStart="16dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textStyle="normal" />
+</RelativeLayout>
+</ScrollView>
