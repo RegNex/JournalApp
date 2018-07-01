@@ -139,6 +139,9 @@ private FirebaseUser mUser;
             progressDialog.setMessage("Logging you out...");
             progressDialog.show();
             FirebaseAuth.getInstance().signOut();
+           startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+           finish();
+
         }else if(id == R.id.action_profile){
             startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
             finish();

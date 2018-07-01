@@ -2,9 +2,9 @@ package co.etornam.journalapp.views;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.Map;
 
 import co.etornam.journalapp.R;
-import co.etornam.journalapp.common.Constants;
 
 import static co.etornam.journalapp.common.Constants.JOURNALS;
 

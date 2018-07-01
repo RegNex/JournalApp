@@ -25,22 +25,28 @@ locate the project on your system and open with android studio
 What things you need to install the software and how to install them
 
 ```
-- Java 8
+- Java 8 or Higher
 - Latest version of Android SDK and Android Build Tools
 ```
 
 
-##How to contribute
+## How to contribute
 Contributing to Journal App is pretty straight forward! Fork the project, clone your fork and start coding!
 
 
-##Features:
+## Features:
 
 - Add journal
 - Edit journal
 - Delete journal
 - UI optimized for phone and tablet
 
+## Download APK
+You can find the apk of this project in
+
+```
+JournalApp\app\build\outputs\apk\debug\app-debug.apk
+```
 
 ## Built With
 

@@ -1,7 +1,5 @@
 package co.etornam.journalapp.views;
 
-
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -43,7 +41,6 @@ import java.util.Map;
 
 import co.etornam.journalapp.R;
 import co.etornam.journalapp.model.Profile;
-import co.etornam.journalapp.common.Constants;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static co.etornam.journalapp.common.Constants.PROFILE_IMAGES;
