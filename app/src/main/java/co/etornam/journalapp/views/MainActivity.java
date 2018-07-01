@@ -9,10 +9,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +37,8 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import static co.etornam.journalapp.common.Constants.JOURNALS;
 
 public class MainActivity extends AppCompatActivity {
-private FirebaseAuth mAuth;
+    private static final String TAG = "MainActivity";
+    private FirebaseAuth mAuth;
 private  String mUid;
 private ProgressDialog progressDialog;
 private List<Post> post_list;
@@ -59,8 +59,6 @@ private FirebaseUser mUser;
         Collections.reverse(post_list);
         journalAdapter = new JournalAdapter(post_list,getApplicationContext(),keyList);
         mRecyclerView = findViewById(R.id.recyclerView);
-        SnapHelper snapHelper = new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(mRecyclerView);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mLayoutManager.setReverseLayout(true);
         mLayoutManager.setStackFromEnd(true);
@@ -106,7 +104,7 @@ private FirebaseUser mUser;
 
                @Override
                public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                   Log.d(TAG, "onCancelled: " + databaseError.getMessage());
                }
            });
        }else{
@@ -114,6 +112,24 @@ private FirebaseUser mUser;
            finish();
        }
 
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (dy > 0) {
+                    // Scroll Down
+                    if (fab.isShown()) {
+                        fab.hide();
+                    }
+                } else if (dy < 0) {
+                    // Scroll Up
+                    if (!fab.isShown()) {
+                        fab.show();
+                    }
+                }
+            }
+        });
         mRecyclerView.setAdapter(journalAdapter);
 
     }

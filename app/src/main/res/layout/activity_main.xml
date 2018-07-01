@@ -20,7 +20,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <LinearLayout
+        android:id="@+id/llinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:reverseLayout="true"
+            app:stackFromEnd="true" />
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -31,6 +46,8 @@
         app:fabSize="normal"
         app:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/ic_mode_edit_black_24dp"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_behavior="co.etornam.journalapp.controllers.ScrollAwareFABBehavior"
         tools:ignore="VectorDrawableCompat" />
 
 </android.support.design.widget.CoordinatorLayout>
