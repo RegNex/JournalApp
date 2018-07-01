@@ -13,7 +13,7 @@ cd folder/to/clone-into/
 ```
 
 ```
-git clone https://github.com/regnex/journal-app.git
+git clone https://github.com/RegNex/journalApp.git
 ```
 
 Then 
