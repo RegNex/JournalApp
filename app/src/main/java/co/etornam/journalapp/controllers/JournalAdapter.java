@@ -83,7 +83,7 @@ public List<String> keyList ;
                             Toast.makeText(context, "Could not delete", Toast.LENGTH_SHORT).show();
                         }
                         notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, postList.size());
+                        // notifyItemRangeChanged(position, postList.size());
                         notifyDataSetChanged();
                     }
                 });

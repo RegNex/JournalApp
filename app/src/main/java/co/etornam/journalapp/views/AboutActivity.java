@@ -1,11 +1,11 @@
 package co.etornam.journalapp.views;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import co.etornam.journalapp.R;
 
@@ -36,6 +36,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void privacyClick(View view) {
-        Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(getResources().getString(R.string.license_link))));
     }
 }

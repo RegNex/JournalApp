@@ -53,6 +53,7 @@ private ProgressDialog mProgress;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         newJournal = mDatabase.child(JOURNALS);
         mAuth = FirebaseAuth.getInstance();
+        userAuth();
         edtTitle = findViewById(R.id.edtTitle);
         edtBody = findViewById(R.id.edtText);
         mButton = findViewById(R.id.btnAdd);
@@ -92,27 +93,35 @@ private ProgressDialog mProgress;
                     mPost.put("body",body);
                     mPost.put("category",item);
                     mPost.put("timeStamp", ServerValue.TIMESTAMP);
-                    newJournal.child(mUid).push().setValue(mPost)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                  if (task.isSuccessful()){
-                                      startActivity(new Intent(getApplicationContext(),
-                                              MainActivity.class));
-                                      finish();
-                                      Toast.makeText(AddNewActivity.this, "Journal Added!", Toast
-                                              .LENGTH_SHORT).show();
-                                  }else if (task.isCanceled()){
-                                      Toast.makeText(AddNewActivity.this, "Cancelled", Toast
-                                              .LENGTH_SHORT).show();
-                                  }else{
-                                      Log.d(TAG, "onComplete: "+task.getException().getMessage());
-                                      Toast.makeText(AddNewActivity.this, "Something went wrong",
-                                              Toast.LENGTH_SHORT).show();
-                                  }
-                                  mProgress.dismiss();
-                                }
-                            });
+                    FirebaseUser mUser = mAuth.getCurrentUser();
+                    if (mUser != null) {
+                        mUid = mAuth.getCurrentUser().getUid();
+                        newJournal.child(mUid).push().setValue(mPost)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            startActivity(new Intent(getApplicationContext(),
+                                                    MainActivity.class));
+                                            finish();
+                                            Toast.makeText(AddNewActivity.this, "Journal Added!", Toast
+                                                    .LENGTH_SHORT).show();
+                                        } else if (task.isCanceled()) {
+                                            Toast.makeText(AddNewActivity.this, "Cancelled", Toast
+                                                    .LENGTH_SHORT).show();
+                                        } else {
+                                            Log.d(TAG, "onComplete: " + task.getException().getMessage());
+                                            Toast.makeText(AddNewActivity.this, "Something went wrong",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                        mProgress.dismiss();
+                                    }
+                                });
+                    } else {
+                        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                        finish();
+                    }
+
                 }else if (TextUtils.isEmpty(edtTitle.getText().toString())){
                     edtTitle.setError("Field cannot be Empty!");
                 }else if (TextUtils.isEmpty(edtBody.getText().toString())){
@@ -147,11 +156,16 @@ private ProgressDialog mProgress;
     @Override
     protected void onStart() {
         super.onStart();
+        userAuth();
+    }
+
+    private void userAuth() {
         FirebaseUser mUser = mAuth.getCurrentUser();
         if (mUser != null){
             mUid = mAuth.getCurrentUser().getUid();
         }else {
-            //return back to login activity
+            startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+            finish();
         }
     }
 
