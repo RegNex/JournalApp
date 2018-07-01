@@ -76,6 +76,9 @@ JournalApp\app\release\app-release.apk
 
 * **Sunu Bright Etornam** 
 
+## Inspiration
+Andela Learning Community (ALC) #7DaysofCodeChallenge
+You are required to create a journal application where in users can pen down their thoughts and feelings.
 
 ## License
 
@@ -95,7 +98,10 @@ limitations under the License.
 
 
 ## Acknowledgments
+# Hat tip to anyone whose library was used
+* [CircleImageView](https://github.com/hdodenhof/CircleImageView)
+* [Android-Image-Cropper](https://github.com/ArthurHub/Android-Image-Cropper)
+* [picasso](https://github.com/square/picasso)
+* [recyclerview-animators](https://github.com/wasabeef/recyclerview-animators)
+* [fabric.io](https://fabric.io/kits/android/crashlytics/install)
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
