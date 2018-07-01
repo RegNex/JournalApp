@@ -98,7 +98,7 @@ limitations under the License.
 
 
 ## Acknowledgments
-# Hat tip to anyone whose library was used
+#### Hat tip to anyone whose library was used
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 * [Android-Image-Cropper](https://github.com/ArthurHub/Android-Image-Cropper)
 * [picasso](https://github.com/square/picasso)
