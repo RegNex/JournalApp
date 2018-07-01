@@ -113,6 +113,7 @@ private FirebaseUser mUser;
            startActivity(new Intent(getApplicationContext(),SignUpActivity.class));
            finish();
        }
+
         mRecyclerView.setAdapter(journalAdapter);
 
     }
