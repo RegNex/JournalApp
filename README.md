@@ -46,7 +46,7 @@ Contributing to Journal App is pretty straight forward! Fork the project, clone 
 You can find the apk of this project in
 
 ```
-JournalApp\app\build\outputs\apk\debug\app-debug.apk
+JournalApp\app\release\app-release.apk
 ```
 
 ## To set up an emulator
