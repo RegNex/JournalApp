@@ -1,5 +1,6 @@
 # Journal App
 
+
 Journal App is an application where in users can pen down their thoughts and feelings. 
 
 ## Getting Started
@@ -19,6 +20,7 @@ git clone https://github.com/RegNex/journalApp.git
 Then 
 locate the project on your system and open with android studio
 
+<img src="https://github.com/RegNex/journalApp/blob/master/art/journal.png" />
 
 ## Prerequisites
 
